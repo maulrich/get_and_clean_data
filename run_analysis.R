@@ -13,12 +13,12 @@ if (!require("reshape2")) {
 # data loader: loads data fpr test and train
 data_loader <- function(file_x, file_y, file_s, features, activity) {
   # labels to process
-  features <- grepl("mean|std", features)  
+  features_tmp <- grepl("mean|std", features)  
   # reading data file
   x <- read.table(file_x)
   names(x) = features  
   # selecting mean and std cols
-  x = x[,features]  
+  x = x[,features_tmp]  
   # activities
   y <- read.table(file_y)
   y[,2] = activity[y[,1]]
